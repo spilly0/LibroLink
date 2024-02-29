@@ -17,6 +17,6 @@ export class Book {
 	@Column()
 	genre: string;
 
-	@Column({ type: "bigint" })
+	@Column({ type: "timestamp" })
 	publicationDate: number;
 }
