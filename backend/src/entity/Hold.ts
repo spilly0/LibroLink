@@ -29,4 +29,10 @@ export class Hold {
 
 	@Column({ type: "timestamp with time zone", nullable: true })
 	expirationDate: string;
+
+	constructor(data?: Partial<Hold>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }

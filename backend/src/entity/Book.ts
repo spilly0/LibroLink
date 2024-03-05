@@ -12,11 +12,17 @@ export class Book {
 	author: string;
 
 	@Column()
-	isbn: number;
+	isbn: string;
 
 	@Column()
 	genre: string;
 
-	@Column({ type: "timestamp" })
-	publicationDate: number;
+	// @Column({ type: "timestamp" })
+	// publicationDate: number;
+
+	constructor(data?: Partial<Book>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }

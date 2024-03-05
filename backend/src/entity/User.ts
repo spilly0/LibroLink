@@ -28,4 +28,10 @@ export class User {
 		default: UserRoles.MEMEBER,
 	})
 	role: UserRoles;
+
+	constructor(data?: Partial<User>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }

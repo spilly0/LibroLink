@@ -8,11 +8,7 @@ import {
 import { Book } from "./Book";
 import { Library } from "./Library";
 
-export enum StatusRoles {
-	AVAILABLE = "available",
-	CHECKED = "checked",
-	HOLD = "hold",
-}
+type StatusRoles = "available" | "checked" | "hold";
 
 @Entity()
 export class BookCopy {
@@ -31,4 +27,10 @@ export class BookCopy {
 
 	@Column()
 	status: StatusRoles;
+
+	constructor(data?: Partial<BookCopy>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }

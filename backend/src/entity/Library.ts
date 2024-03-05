@@ -16,4 +16,10 @@ export class Library {
 
 	@Column()
 	address: string;
+
+	constructor(data?: Partial<Library>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }

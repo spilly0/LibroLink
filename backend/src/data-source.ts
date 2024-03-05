@@ -10,6 +10,7 @@ export const AppDataSource = new DataSource({
 	password: "",
 	database: "libroLink",
 	synchronize: true,
+	dropSchema: true,
 	logging: false,
 	entities: [Book, BookCopy, Checkout, Library, User],
 	migrations: [],

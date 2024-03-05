@@ -27,6 +27,15 @@ export class Checkout {
 	@Column({ type: "timestamp with time zone" })
 	dueDate: string;
 
+	@Column({ type: "timestamp with time zone", nullable: true })
+	dateReturned: string;
+
 	@Column()
 	extensions: number;
+
+	constructor(data?: Partial<Checkout>) {
+		if (data) {
+			Object.assign(this, data);
+		}
+	}
 }
