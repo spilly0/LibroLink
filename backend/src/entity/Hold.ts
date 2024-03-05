@@ -4,6 +4,7 @@ import {
 	Column,
 	OneToOne,
 	JoinColumn,
+	ManyToOne,
 } from "typeorm";
 import { Book } from "./Book";
 import { User } from "./User";
@@ -13,7 +14,7 @@ export class Hold {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@OneToOne(() => Book)
+	@ManyToOne(() => Book)
 	@JoinColumn()
 	book: Book;
 
@@ -22,13 +23,13 @@ export class Hold {
 	user: User;
 
 	@Column({ type: "timestamp with time zone", nullable: true })
-	requestDate: string;
+	requestDate: Date | null;
 
 	@Column({ type: "timestamp with time zone", nullable: true })
-	checkoutDate: string;
+	checkoutDate: Date;
 
 	@Column({ type: "timestamp with time zone", nullable: true })
-	expirationDate: string;
+	expirationDate: Date;
 
 	constructor(data?: Partial<Hold>) {
 		if (data) {

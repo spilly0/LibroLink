@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 export enum UserRoles {
 	ADMIN = "admin",
-	MEMEBER = "member",
+	MEMBER = "member",
 }
 
 @Entity()
@@ -19,13 +19,13 @@ export class User {
 	@Column({ unique: true })
 	email: string;
 
-	@Column()
-	phoneNumber: number;
+	@Column({ length: 10 })
+	phoneNumber: string;
 
 	@Column({
 		type: "enum",
 		enum: UserRoles,
-		default: UserRoles.MEMEBER,
+		default: UserRoles.MEMBER,
 	})
 	role: UserRoles;
 

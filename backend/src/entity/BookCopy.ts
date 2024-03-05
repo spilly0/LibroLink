@@ -4,6 +4,7 @@ import {
 	Column,
 	OneToOne,
 	JoinColumn,
+	ManyToOne,
 } from "typeorm";
 import { Book } from "./Book";
 import { Library } from "./Library";
@@ -16,7 +17,7 @@ export class BookCopy {
 	id: number;
 
 	// Book
-	@OneToOne(() => Book)
+	@ManyToOne(() => Book)
 	@JoinColumn()
 	copy: Book;
 
