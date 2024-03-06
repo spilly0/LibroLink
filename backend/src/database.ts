@@ -1,5 +1,5 @@
 import { AppDataSource } from "./data-source";
-import { Book, BookCopy, Hold, User } from "./entity";
+import { Book, BookCopy, Hold, User } from "./entities";
 
 AppDataSource.initialize()
 	.then(async () => {
